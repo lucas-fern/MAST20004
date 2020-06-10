@@ -1,0 +1,257 @@
+\documentclass[titlepage,twocolumn]{article}
+
+\usepackage[a4paper,top=2cm,bottom=2cm,left=1cm,right=1cm]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{algorithm2e}
+\usepackage{nopageno}
+\usepackage{mathtools}
+
+\title{MAST20004 Probability - Summary Notes}
+\date{\today}
+\author{Lucas Fern (1080613)}
+\lhead{MAST20004 Probability - Summary Notes}
+\rhead{Lucas Fern (1080613)}
+
+\pagestyle{fancy}
+
+\begin{document}
+\section*{Distributions}
+\subsection*{Binomial}
+If $X$ is the number of successes in $n$ independent Bernoulli trials with probability of success $p$ then\\$X\stackrel{d}{=}\mbox{Bi}(n,p)$.
+\begin{align*}
+    &p_X(x)={\binom{n}{x}}p^x(1-p)^{n-x}\\
+    &\mathbb{E}(X)=np\\
+    &\mbox{Var}(X)=np(1-p)
+\end{align*}
+$X$ has recursive formula: $$\frac{p_X(x)}{p_X(x-1)}=\frac{\frac{n+1}{x}-1}{\frac{1}{p}-1}$$
+
+\subsection*{Geometric}
+If $N$ is the number of failures before a success in a sequence of independent Bernoulli trials with probability of success $p$ then $N\stackrel{d}{=}\mbox{G}(p)$.
+\begin{align*}
+    &p_N(n)=(1-p)^{n-1}p\\
+    &\mathbb{E}(N)=\frac{1-p}{p}\\
+    &\mbox{Var}(N)=\frac{1-p}{p^2}
+\end{align*}
+
+\subsection*{Negative Binomial}
+If $Z$ is the number of failures before the $r^{th}$ success in a sequence of independent Bernoulli trials with probability of success $p$ then $Z\stackrel{d}{=}\mbox{Nb}(r,p)$.
+\begin{align*}
+    p_Z(z)&={\binom{z+r-1}{r-1}}p^r(1-p)^z\\
+    &={\binom{-r}{z}}p^r(p-1)^z
+\end{align*}
+Where ${\binom{x}{k}} = \frac{x(x-1)(x-2)...(x-k+2)(x-k+1)}{k!}$ for $x \in \mathbb{R}$
+
+\subsection*{Hypergeometric}
+When sampling $n$ items from a population of $N$ without replacement, where $D$ are defective, the amount of defective items selected is $X$ and; $X\stackrel{d}{=}\mbox{Hg}(n,D,N)$.
+\begin{align*}
+    &p_X(x)=\frac{{\binom{D}{x}}{\binom{N-D}{n-x}}}{{\binom{N}{n}}}\\
+    &\mathbb{E}(X)=\frac{nD}{N}\\
+    &\mbox{Var}(X)=\frac{nD(N-D)}{N^2}\cdot(1-\frac{n-1}{N-1})
+\end{align*}
+\vfill
+\subsection*{Poisson}
+An analogue for the Binomial distribution in continuous time. If $\alpha$ is the expected amount of successes over the time period (the Poisson rate), then the amount of successes $X\stackrel{d}{=}\mbox{Pn}(\alpha)$.
+\begin{align*}
+    &p_X(x)=\frac{e^{-\alpha}(\alpha)^x}{x!}\\
+    &\mathbb{E}(X)=V(X)=\alpha
+\end{align*}
+The Poisson distribution can be used to approximate the Binomial distribution for small $p$, ($p < 0.05$) where Bi$(n,p) \stackrel{d}{\approx}\mbox{Pn}(np)$.
+
+\subsection*{Discrete Uniform}
+A representation of discrete events with equal probabilities of all outcomes, for an $X$ that can take integer values between $m$ and $n$, $X\stackrel{d}{=}\mbox{U}(m,n)$.
+\begin{align*}
+    &p_X(x)=\frac{1}{n-m+1}\\
+    &\mathbb{E}(X)=\frac{m+n}{2}\\
+    &\mbox{Var}(X)=\frac{1}{12}((n-m+1)^2-1)
+\end{align*}
+
+\subsection*{Continuous Uniform}
+A representation of continuous events with equal probabilities, for an $X$ that can take any real value between $a$ and $b$, $X\stackrel{d}{=}\mbox{R}(a,b)$.
+\begin{align*}
+    &f_X(x)=\frac{1}{b-a}\\
+    &\mathbb{E}(X)=\frac{a+b}{2}\\
+    &\mbox{Var}(X)=\frac{1}{12}(b-a)^2
+\end{align*}
+
+\subsection*{Exponential}
+A continuous analogue of the geometric distribution, modelling the waiting time until an event occurs in continuous time. For an event that has probability of $\alpha$ of occurring over one period of time, the waiting time until the event occurs $T$ follows $T\stackrel{d}{=}\mbox{exp}(\alpha)$.
+\begin{align*}
+    &f_T(t)=\begin{cases} \alpha e^{-\alpha t}, & t \geq 0 \\ 0, & t < 0 \end{cases}\\
+    &\mathbb{E}(T)=\frac{1}{\alpha}\\
+    &\mbox{Var}(T)=\frac{1}{\alpha ^2}
+\end{align*}
+The exponential distribution has the lack of memory property such that $\mathbb{P}(T \geq x+y\ |\ T \geq x) = \mathbb{P}(T \geq y)$.
+\vfill
+\subsection*{Gamma}
+A continuous analogue of the negative binomial distribution, modelling the waiting time until $r$ events occur in continuous time. For an event that has probability of $\alpha$ of occurring over one period of time, the waiting time until the $r^{th}$ event occurs - $T$ - follows $T\stackrel{d}{=} \gamma(r, \alpha)$.
+\begin{align*}
+    &f_T(t)=\frac{\alpha^r t^{r-1} e^{-\alpha t}}{\Gamma(r)},\ t > 0\\
+    &F_T(t)=1-\sum_{k=0}^{r+1}\frac{(\alpha t)^k}{k!}e^{-\alpha t}\\
+    &\mathbb{E}(T^k)=\frac{\Gamma(r+k)}{\Gamma(r)\alpha^k}\\
+    &\mathbb{E}(T)=\frac{r}{\alpha}\\
+    &\mbox{Var}(T)=\frac{r}{\alpha ^2}
+\end{align*}
+$$\mbox{where }\Gamma(r) = \int_0^\infty e^{-x}x^{r-1} dx = (r-1)\Gamma(r-1) \mbox{ for all } r > 0$$
+$$\Gamma(1) = 1 \mbox{ and } \Gamma(k) = (k-1)! \mbox{ for any } k \in \mathbb{N}$$
+
+\subsection*{Beta}
+A random variable $X$ has a beta distribution with parameters $\alpha >0$ and $\beta > 0$ and is denoted $X\stackrel{d}{=}\mbox{Beta}(\alpha, \beta)$ if it has the following properties:
+\begin{align*}
+    &f_X(x)=\begin{cases} \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}, & 0 \leq x \leq 1 \\ 0, & \mbox{elsewhere} \end{cases}\\
+    &\mathbb{E}(X^k)=\frac{\Gamma(\alpha+k)\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\alpha+\beta+k)}\\
+    &\mathbb{E}(X)=\frac{\alpha}{\alpha+\beta}\\
+    &\mbox{Var}(X)=\frac{\alpha \beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
+\end{align*}
+$$\mbox{where }B(\alpha,\beta) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)} = \int_0^1x^{\alpha-1}(1-x)^{\beta-1}dx.$$
+The distribution is $\cup$ shaped for $\alpha = \beta < 1$ and $\cap$ shaped for $\alpha = \beta > 1$ and Beta$(1,1) =$ R$(0,1)$.
+
+\subsection*{Pareto}
+The Pareto distribution is shaped similarly to the exponential distribution, though the tail of an exponential distribution is thinner. A random variable $X$ has a pareto distribution denoted $X\stackrel{d}{=}\mbox{Pareto}(\alpha, \gamma)$ with parameters $\{\alpha,\gamma \} \in \mathbb{R}^+$ if it has the properties:
+\begin{align*}
+    &f_X(x)=\frac{\gamma \alpha^\gamma}{x^{\gamma+1}}, \mbox{ for } \alpha \leq x < \infty\\
+    &\mathbb{E}(X)=\frac{\gamma \alpha}{\gamma - 1}, \mbox{ for } \gamma > 1\\
+    &\mbox{Var}(X)=\frac{\gamma \alpha^2}{(\gamma-1)^2(\gamma - 2)}, \mbox{ for } \gamma > 2
+\end{align*}
+\vfill
+\subsection*{Normal}
+The Normal distribution is parameterised by its mean and variance $\mu$ and $\sigma^2$. A normally distributed random variable $X$ is written $X\stackrel{d}{=}\mbox{N}(\mu, \sigma^2)$. The case N(0,1) is the \textit{Standard Normal Distribution} and it's pdf is denoted $\varphi(z)$.
+\begin{align*}
+    &f_X(x)=\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, \mbox{ for } x \in \mathbb{R}\\
+    &\mathbb{E}(X)=\mu\\
+    &\mbox{Var}(X)=\sigma^2
+\end{align*}
+For $Z \stackrel{d}{=}\mbox{N}(0,1)$ (the Standard Normal Distribution):
+\begin{align*}
+    &\mathbb{E}(Z^{2k})=\frac{(2k)!}{2^k k!}\\
+    &\mathbb{E}(Z^{2k+1})=0
+\end{align*}
+The Normal distribution can be used to approximate:
+\begin{itemize}
+    \item $X \stackrel{d}{=}\mbox{Bi}(n,p) \stackrel{d}{\approx}\mbox{N}(np,np(1-p))$ for large $n$ and $p$ not close to 0 or 1. ($np > 5$ and $n(1-p) > 5$)
+    \item $X \stackrel{d}{=}\mbox{Pn}(\lambda) \stackrel{d}{\approx}\mbox{N}(\lambda, \lambda)$ for large $\lambda$.
+    \item $X \stackrel{d}{=} \gamma(r,\alpha) \stackrel{d}{\approx}\mbox{N}(\frac{r}{\alpha}, \frac{r}{\alpha^2})$ for large $r$.
+\end{itemize}
+
+\subsection*{Weibull}
+The Weibull distribution is used to model survival data, where the hazard function, or rate of failures at a specific time may increase, decrease or be constant. It is parameterised by $\beta$ and $\gamma$, written $X\stackrel{d}{=}\mbox{Weibull}(\beta, \gamma)$ and has the properties:
+\begin{align*}
+    &f_X(x)=\frac{\gamma x^{\gamma - 1}}{\beta^\gamma}e^{-(\frac{x}{\beta})^\gamma}, \mbox{ for } 0 \leq x < \infty\\
+    &\mathbb{E}(X)=\beta \Gamma\left(\frac{\gamma + 1}{\gamma}\right)\\
+    &\mbox{Var}(X)=\beta^2 \left[\Gamma\left(\frac{\gamma + 2}{\gamma}\right)-\Gamma\left(\frac{\gamma + 1}{\gamma}\right)^2\right]
+\end{align*}
+The hazard rate of any random variable $T$ is given by $\frac{f_T(t)}{1-F_T(t)}$, giving the Weibull distribution a hazard rate of $\gamma \frac{t^{\gamma-1}}{\beta \gamma}$.
+
+\subsection*{Cauchy}
+The Cauchy distribution has parameters $m$ - the location, and $a$ - the scale parameter, and is written $X\stackrel{d}{=}\mbox{C}(m, a)$.
+\begin{align*}
+    &f_X(x)=\frac{1}{\pi} \frac{a}{a^2 + (x-m)^2}, \mbox{ for } -\infty < x < \infty
+\end{align*}
+It does not have a defined mean or variance.
+
+\subsection*{Lognormal}
+If $X \stackrel{d}{=} \mbox{N}(\mu, \sigma^2)$ and $Y \stackrel{d}{=} e^X$, then $Y$ has a lognormal distribution with the same parameters $Y \stackrel{d}{=} \mbox{LN}(\mu, \sigma^2)$.
+\begin{align*}
+    &f_Y(y)=\frac{1}{\sqrt{2\pi}\sigma y}e^{-\frac{(\ln y - \mu)^2}{2\sigma^2}}, \mbox{ for } y > 0\\
+    &\mathbb{E}(Y^r)=e^{r\mu + \frac{1}{2}r^2 \sigma^2},\ r \geq 0\\
+    &\mbox{Var}(Y)=e^{2\mu + \sigma^2}(e^{\sigma^2}-1)
+\end{align*}
+
+\subsection*{Bivariate Normal}
+A bivariate normal distribution is defined by the means and variances of the univariate normal distributions $X$ and $Y$ and their correlation coefficient $\rho$. We write $(X,Y) \stackrel{d}{=} \mbox{N}_{2}(\mu_X, \mu_Y, \sigma^2_X, \sigma^2_Y, \rho)$, or for the standard bivariate normal with $\mu_X = \mu_Y = 0$ and $\sigma^2_X = \sigma^2_Y = 1$, $\mbox{N}_{2}(\rho)$.
+$$
+f_{(X,Y)}(x,y)=\frac{1}{2 \pi \sqrt{1 - \rho^2}}\exp{\left(\frac{-1}{2(1-\rho^2)}(x^2 - 2 \rho x y + y^2)\right)}$$ $$
+(X|Y=y) \stackrel{d}{=} \mbox{N}(\mu_X + \rho \sigma_X \frac{(y-\mu_Y)}{\sigma_Y}, \sigma_X^2(1-\rho^2))
+$$
+The correlation coefficient $\rho$ is calculated as $\frac{\mbox{Cov}(X,Y)}{\sigma_X \sigma_Y}$ where $\mbox{Cov}(X,Y) = \mathbb{E}((X-\mu_X)(Y-\mu_Y)) = \mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y)$.
+
+\section*{Convolutions \& Linear Combinations}
+If $X$ and $Y$ are \textbf{independent} their sum (convolution) is:
+\begin{alignat*}{2}
+    p_{X+Y}(z) &= \sum_{x \in S_X} p_X(x)p_Y(z-x)\\
+               &= \sum_{y \in S_Y} p_X(z-y)p_Y(y), &&\ (X,Y) \mbox{ discrete,}\\
+    f_{X+Y}(z) &= \int_{-\infty}^{\infty} f_X(x)f_Y(z-x)\\
+               &= \int_{-\infty}^{\infty} f_X(z-y)f_Y(y), &&\ (X,Y) \mbox{ continuous.}
+\end{alignat*}
+And for $Z_1 = aX+bY$, $Z_2 = cX+dY$:
+\begin{align*}
+    &\mathbb{E}(Z_1) = a\mathbb{E}(X) + b\mathbb{E}(Y)\\
+    &\mbox{Cov}(Z_1, Z_2) = ac \mbox{Var}(X) + 2ab \mbox{Cov}(X,Y) + bd \mbox{Var}(Y)\\
+    &\mbox{Var}(Z_1) = a^2 \mbox{Var}(X) + 2ab \mbox{Cov}(X,Y) + b^2 \mbox{Var}(Y)
+\end{align*}
+where the variance property is a special case; $\mbox{Cov}(Z_1, Z_1) = \mbox{Var}(Z_1)$.
+
+\section*{Conditioning on Random Variables}
+$\mathbb{E}(X|Y) = \mathbb{E}(X|Y=y)$ is the \textit{conditional expectation} of $X$ given $Y$.\\[2mm]
+$\mathbb{E}(X|Y) \coloneqq \int_{-\infty}^{\infty}x f_{X|Y}(x|y)dx$, replacing the integral for a sum over $x \in S_X$ for the discrete case.\\[2mm]
+The \textbf{Law of Total Expectation} is $\mathbb{E}(\mathbb{E}(X|Y)) = \mathbb{E}(X)$, where we take the outer integral over all values of $y$ and then rearrange from $\int_{-\infty}^{\infty}(\int_{-\infty}^{\infty} x f_{X|Y}(x|y) dx) f_Y(y) dy$ to get $\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} x f_{(X,Y)}(x,y) dy dx = \int_{-\infty}^{\infty} x f_X(x) dx$.\\[2mm]
+Then for variance, $\mbox{Var}(X) = \mbox{Var}(\mathbb{E}(X|Y)) + \mathbb{E}(\mbox{Var}(X|Y))$.
+
+\section*{Generating Functions}
+\subsection*{Probability Generating Functions (PGF's)}
+The PGF exists only for non-negative integer valued random variables and the PGF of $X$ is given by $$P_X(z) = \mathbb{E}(z^X) = \sum_{x=0}^{\infty}p_X(x)z^x.$$ We then get that $$p_X(k) = \mathbb{P}(X=k) = \frac{P_X^{(k)}(0)}{k!}$$
+\subsubsection*{Properties of the PGF}
+\begin{itemize}
+    \item $P_X(z) = \mathbb{E}(z^X) = \mathbb{E}(\mathbb{E}(z^X|Y))$.
+    \item $P_X^\prime(1) = \mathbb{E}(X)$ and $P_X^{\prime\prime}(1) = \mathbb{E}(X(X-1))$,
+    \item $\implies \mbox{Var}(X) = P_X^{\prime\prime}(1) + P_X^{\prime}(1) - P_X^{\prime}(1)^2$.
+    \item For independent $X$ and $Y$,\\$P_{X+Y}(z)=P_X(z)P_Y(z)$ since\\$\mathbb{E}(z^{X+Y}) = \mathbb{E}(z^X)\mathbb{E}(z^Y)$.
+\end{itemize}
+\paragraph{Binomial PGF}
+If $X\stackrel{d}{=}\mbox{Bi}(n,p)$, then: $$P_X(z) = (1-p+pz)^n,\ \mbox{for } z \in \mathbb{R}.$$
+\paragraph{Poisson PGF}
+If $X\stackrel{d}{=}\mbox{Pn}(\lambda)$, then: $$P_X(z) = e^{-\lambda (1-z)},\ \mbox{for } z \in \mathbb{R}.$$
+\paragraph{Negative Binomial PGF}
+If $X\stackrel{d}{=}\mbox{Nb}(r,p)$, then: $$P_X(z) = p^r(1-(1-p)z)^{-r},\ \mbox{for } |z| < \frac{1}{1-p}.$$ The PGF for the \textbf{geometric} distribution can be derived from this as $X\stackrel{d}{=}\mbox{G}(p)\stackrel{d}{=}\mbox{Nb}(1,p)$
+
+\subsection*{Moment Generating Functions (MGF's)}
+The $k^{th}$ moment (about the origin) of a random variable $X$ is $\mu_k = \mathbb{E}(X^k)$.\\[2mm]
+The $k^{th}$ \textit{central} moment (about the mean) of a random variable $X$ is $\nu_k = \mathbb{E}((X-\mu)^k)$.\\[2mm]
+The MGF is defined over all $t \in \{t: \mathbb{E}(e^{tX}) < \infty\}$ as $$M_X(t) = \mathbb{E}(e^{tX}) = \int_{x \in S_X}e^{tx}f_X(x)dx,$$ replacing the integral with a sum in the discrete case as the MGF is defined for both.
+\subsubsection*{Properties of the MGF}
+\begin{itemize}
+    \item $M_X(0) = 1$, $M_X^\prime(0) = \mathbb{E}(X)$ and $M_X^{\prime\prime}(0) = \mathbb{E}(X^2)$,
+    \item $\implies \mbox{Var}(X) = M_X^{\prime\prime}(0) - M_X^{\prime}(0)^2$.
+    \item $\mu_k = M_X^{(k)}(0)$.
+    \item If $Y = aX + b$ then $M_Y(t) = e^{bt}M_X(at)$.
+    \item For \textbf{independent} $X$ and $Y$, $M_{X+Y}(t) = M_{X}(t)M_{Y}(t)$.
+    \item If $X$ is a discrete RV defined on the non-negative integers then $M_X(t) = P_X(e^t)$ and $P_X(z) = M_X(\log z)$.
+    \item The central moment generating function\\$N_X(t) = \mathbb{E}\left(e^{(X-\mu)t}\right)$
+\end{itemize}
+\paragraph{Exponential MGF}
+If $X\stackrel{d}{=}\mbox{exp}(\alpha)$, then: $$M_X(t) = \frac{\alpha}{\alpha - t}$$
+\paragraph{Poisson MGF}
+If $X\stackrel{d}{=}\mbox{Pn}(\lambda)$, then: $$M_X(t) = e^{\lambda(e^t-1)} = 1 + \lambda t + \lambda(\lambda + 1)\frac{t^2}{2} + \dots$$
+\paragraph{Gamma MGF}
+If $X\stackrel{d}{=}\gamma(r,\alpha)$, then: $$M_X(t) = \left( 1- \frac{t}{\alpha} \right)^{-r} = 1 + \frac{rt}{\alpha} + \frac{r(r+1)}{\alpha^2}\frac{t^2}{2} + \dots$$
+\paragraph{Normal MGF}
+If $X\stackrel{d}{=}\mbox{N}(\mu, \sigma^2)$, then:
+\begin{align*}
+    &M_X(t) = e^{\mu t + \frac{1}{2}\sigma^2t^2},\mbox{ and}\\
+    &N_X(t) = e^{\frac{1}{2}\sigma^2t^2}
+\end{align*}
+
+\subsection*{Cumulant Generating Functions (CGF's)}
+The CGF of a random variable $X$ is given by $$K_X(t) = \ln M_X(t)$$ and $\kappa_r = K_X^{(r)}(0)$ is the $r^{th}$ cumulant of $X$.
+\subsubsection*{Properties of the CGF}
+\begin{itemize}
+    \item For \textbf{independent} $X$ and $Y$, $K_{X+Y}(t)=K_{X}(t)+K_{Y}(t)$.
+    \item $\kappa_1 = \mathbb{E}(X)$.
+    \item $\kappa_2 = \mbox{Var}(X)$.
+    \item $\kappa_3$ is the \textit{skewness} of $X$.
+    \item $\kappa_4$ is the \textit{kurtosis} of $X$.
+\end{itemize}
+The \textbf{coefficient of skewness} $\mbox{skew}(X)$ is then $\frac{\kappa_3}{\sigma^3}$ and \textbf{coefficient of kurtosis} $\mbox{kurt}(X)$ is $\frac{\kappa_4}{\sigma^4}$.
+
+\section*{Other Formulae}
+\subsubsection*{Chebyshev's Inequality}
+$$\mathbb{P}\left(\frac{|X-\mu|}{\sigma} \geq k\right) \leq \frac{1}{k^2}.$$
+\subsubsection*{Central Limit Theorem}
+If $X_1, X_2,\dots$ are independent identically distributed random variables with $\mathbb{E}(X_i)=\mu$ and $\mbox{Var}(X_i)=\sigma^2$ and $S_n = X_1 + X_2 + \dots + X_n$ then;
+$$Z_n = \frac{S_n - n\mu}{\sigma \sqrt{n}} \stackrel{d}{\rightarrow} \mbox{N}(0,1) \mbox{ as } n\rightarrow \infty.$$ Put otherwise, as $n \rightarrow \infty$, $S_n \stackrel{d}{\rightarrow} \mbox{N}(n\mu, n\sigma^2)$ or the sample mean $\overline{X} \stackrel{d}{\rightarrow} \mbox{N}(\mu, \frac{\sigma^2}{n})$.
+\subsubsection*{Laplace Transform}
+The Laplace transform of a RV $X$ is defined as $$L_X(t)=M_X(-t)=\mathbb{E}(e^{-tX}).$$ Then the inversion formula $$F_X(x) = \lim_{t\rightarrow \infty} \sum_{k\leq tx} \frac{(-t)^k}{k!}L_X^{(k)}(t)$$ can be used to recover the cumulative distribution of $X$.
+\end{document}
