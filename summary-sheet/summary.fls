@@ -1,9 +1,9 @@
-PWD c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet
+PWD c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet
 INPUT e:/texlive/2019/texmf.cnf
 INPUT e:/texlive/2019/texmf-dist/web2c/texmf.cnf
 INPUT e:/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.tex
-OUTPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.log
+INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.tex
+OUTPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.log
 INPUT e:/texlive/2019/texmf-dist/tex/latex/base/article.cls
 INPUT e:/texlive/2019/texmf-dist/tex/latex/base/article.cls
 INPUT e:/texlive/2019/texmf-dist/tex/latex/base/size10.clo
@@ -83,21 +83,21 @@ INPUT e:/texlive/2019/texmf-dist/tex/latex/tools/calc.sty
 INPUT e:/texlive/2019/texmf-dist/tex/latex/tools/calc.sty
 INPUT e:/texlive/2019/texmf-dist/tex/latex/mathtools/mhsetup.sty
 INPUT e:/texlive/2019/texmf-dist/tex/latex/mathtools/mhsetup.sty
-INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.aux
-INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.aux
-OUTPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.aux
+INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.aux
+INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.aux
+OUTPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.aux
 INPUT e:/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT e:/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT e:/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 INPUT e:/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.out
-INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.out
-INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.out
-INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.out
-INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.out
-INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.out
-OUTPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.out
-OUTPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.pdf
+INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.out
+INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.out
+INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.out
+INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.out
+INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.out
+INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.out
+OUTPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.out
+OUTPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.pdf
 INPUT e:/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT e:/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT e:/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
@@ -128,9 +128,9 @@ INPUT e:/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT e:/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 INPUT e:/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 INPUT e:/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.aux
-INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.out
-INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/Summary Sheet/summary.out
+INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.aux
+INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.out
+INPUT c:/Users/Lucas Fern/OneDrive - The University of Melbourne/MAST20004/summary-sheet/summary.out
 INPUT e:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT e:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT e:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb

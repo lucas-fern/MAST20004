@@ -252,6 +252,8 @@ $$\mathbb{P}\left(\frac{|X-\mu|}{\sigma} \geq k\right) \leq \frac{1}{k^2}.$$
 \subsubsection*{Central Limit Theorem}
 If $X_1, X_2,\dots$ are independent identically distributed random variables with $\mathbb{E}(X_i)=\mu$ and $\mbox{Var}(X_i)=\sigma^2$ and $S_n = X_1 + X_2 + \dots + X_n$ then;
 $$Z_n = \frac{S_n - n\mu}{\sigma \sqrt{n}} \stackrel{d}{\rightarrow} \mbox{N}(0,1) \mbox{ as } n\rightarrow \infty.$$ Put otherwise, as $n \rightarrow \infty$, $S_n \stackrel{d}{\rightarrow} \mbox{N}(n\mu, n\sigma^2)$ or the sample mean $\overline{X} \stackrel{d}{\rightarrow} \mbox{N}(\mu, \frac{\sigma^2}{n})$.
+\subsubsection*{Taylor Expansion of $e^x$}
+$$e^x = \sum_{k=0}^{\infty}\frac{x^k}{k!}.$$
 \subsubsection*{Laplace Transform}
 The Laplace transform of a RV $X$ is defined as $$L_X(t)=M_X(-t)=\mathbb{E}(e^{-tX}).$$ Then the inversion formula $$F_X(x) = \lim_{t\rightarrow \infty} \sum_{k\leq tx} \frac{(-t)^k}{k!}L_X^{(k)}(t)$$ can be used to recover the cumulative distribution of $X$.
 \end{document}
