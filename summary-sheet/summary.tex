@@ -221,6 +221,10 @@ The MGF is defined over all $t \in \{t: \mathbb{E}(e^{tX}) < \infty\}$ as $$M_X(
     \item If $X$ is a discrete RV defined on the non-negative integers then $M_X(t) = P_X(e^t)$ and $P_X(z) = M_X(\log z)$.
     \item The central moment generating function\\$N_X(t) = \mathbb{E}\left(e^{(X-\mu)t}\right)$
 \end{itemize}
+\paragraph{Binomial MGF}
+If $X\stackrel{d}{=}\mbox{Bi}(n,p)$, then: $$M_X(t) = ((1-p)+pe^t)^n$$
+\paragraph{Geometric MGF}
+If $X\stackrel{d}{=}\mbox{G}(p)$, then: $$M_X(t) = \frac{pe^t}{1-(1-p)e^t}$$
 \paragraph{Exponential MGF}
 If $X\stackrel{d}{=}\mbox{exp}(\alpha)$, then: $$M_X(t) = \frac{\alpha}{\alpha - t}$$
 \paragraph{Poisson MGF}
@@ -247,8 +251,19 @@ The CGF of a random variable $X$ is given by $$K_X(t) = \ln M_X(t)$$ and $\kappa
 The \textbf{coefficient of skewness} $\mbox{skew}(X)$ is then $\frac{\kappa_3}{\sigma^3}$ and \textbf{coefficient of kurtosis} $\mbox{kurt}(X)$ is $\frac{\kappa_4}{\sigma^4}$.
 
 \section*{Other Formulae}
+\subsubsection*{Expected Values via. Tail Probabilities}
+For a positive RV $X$, ($\mathbb{P}(X\geq 0) = 1$)$$\mathbb{E}(X^n) = n \int_0^{\infty}x^{n-1}(1-F_X(x))dx$$
 \subsubsection*{Chebyshev's Inequality}
 $$\mathbb{P}\left(\frac{|X-\mu|}{\sigma} \geq k\right) \leq \frac{1}{k^2}.$$
+\subsubsection*{Common Series}
+\begin{align*}
+    &\sum_{i=1}^{n} a r^{i-1} &&= \frac{a(1-r^n)}{1-r}, && r \neq 1 \\
+    &\sum_{k=0}^{\infty} a r^k &&= \frac{a}{1-r}, && r \in [0,1) \\
+    &\sum_{n=1}^{N} n &&= \frac{N(N+1)}{2}\\
+    &\sum_{n=1}^{N} n^2 &&= \frac{N(N+1)(2N+1)}{6}\\
+    &\sum_{n=1}^{N} n^3 &&= \frac{N^2(N+1)^2}{4}\\
+    &\sum_{n=1}^{\infty} \frac{1}{n^p} && \mbox{diverges for } p \leq 1 \\
+\end{align*}
 \subsubsection*{Central Limit Theorem}
 If $X_1, X_2,\dots$ are independent identically distributed random variables with $\mathbb{E}(X_i)=\mu$ and $\mbox{Var}(X_i)=\sigma^2$ and $S_n = X_1 + X_2 + \dots + X_n$ then;
 $$Z_n = \frac{S_n - n\mu}{\sigma \sqrt{n}} \stackrel{d}{\rightarrow} \mbox{N}(0,1) \mbox{ as } n\rightarrow \infty.$$ Put otherwise, as $n \rightarrow \infty$, $S_n \stackrel{d}{\rightarrow} \mbox{N}(n\mu, n\sigma^2)$ or the sample mean $\overline{X} \stackrel{d}{\rightarrow} \mbox{N}(\mu, \frac{\sigma^2}{n})$.
