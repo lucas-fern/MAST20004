@@ -32,10 +32,11 @@ $X$ has recursive formula: $$\frac{p_X(x)}{p_X(x-1)}=\frac{\frac{n+1}{x}-1}{\fra
 \subsection*{Geometric}
 If $N$ is the number of failures before a success in a sequence of independent Bernoulli trials with probability of success $p$ then $N\stackrel{d}{=}\mbox{G}(p)$.
 \begin{align*}
-    &p_N(n)=(1-p)^{n-1}p\\
+    &p_N(n)=(1-p)^{n}p\\
     &\mathbb{E}(N)=\frac{1-p}{p}\\
     &\mbox{Var}(N)=\frac{1-p}{p^2}
 \end{align*}
+The geometric distribution has the memoryless property.
 
 \subsection*{Negative Binomial}
 If $Z$ is the number of failures before the $r^{th}$ success in a sequence of independent Bernoulli trials with probability of success $p$ then $Z\stackrel{d}{=}\mbox{Nb}(r,p)$.
@@ -54,12 +55,12 @@ When sampling $n$ items from a population of $N$ without replacement, where $D$ 
 \end{align*}
 \vfill
 \subsection*{Poisson}
-An analogue for the Binomial distribution in continuous time. If $\alpha$ is the expected amount of successes over the time period (the Poisson rate), then the amount of successes $X\stackrel{d}{=}\mbox{Pn}(\alpha)$.
+An analogue for the Binomial distribution in continuous time. If $\alpha$ is the expected amount of successes over unit time (the Poisson rate), then the amount of successes $X\stackrel{d}{=}\mbox{Pn}(\alpha)$ and the amount of successes in $t$ units of time $\stackrel{d}{=}\mbox{Pn}(\alpha t)$.
 \begin{align*}
     &p_X(x)=\frac{e^{-\alpha}(\alpha)^x}{x!}\\
     &\mathbb{E}(X)=V(X)=\alpha
 \end{align*}
-The Poisson distribution can be used to approximate the Binomial distribution for small $p$, ($p < 0.05$) where Bi$(n,p) \stackrel{d}{\approx}\mbox{Pn}(np)$.
+The Poisson distribution has the memoryless property and can be used to approximate the Binomial distribution for small $p$, ($p < 0.05$) where Bi$(n,p) \stackrel{d}{\approx}\mbox{Pn}(np)$.
 
 \subsection*{Discrete Uniform}
 A representation of discrete events with equal probabilities of all outcomes, for an $X$ that can take integer values between $m$ and $n$, $X\stackrel{d}{=}\mbox{U}(m,n)$.
