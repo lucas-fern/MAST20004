@@ -58,7 +58,7 @@ When sampling $n$ items from a population of $N$ without replacement, where $D$ 
 An analogue for the Binomial distribution in continuous time. If $\alpha$ is the expected amount of successes over unit time (the Poisson rate), then the amount of successes $X\stackrel{d}{=}\mbox{Pn}(\alpha)$ and the amount of successes in $t$ units of time $\stackrel{d}{=}\mbox{Pn}(\alpha t)$.
 \begin{align*}
     &p_X(x)=\frac{e^{-\alpha}(\alpha)^x}{x!}\\
-    &\mathbb{E}(X)=V(X)=\alpha
+    &\mathbb{E}(X)=\mbox{Var}(X)=\alpha
 \end{align*}
 The Poisson distribution has the memoryless property and can be used to approximate the Binomial distribution for small $p$, ($p < 0.05$) where Bi$(n,p) \stackrel{d}{\approx}\mbox{Pn}(np)$.
 
