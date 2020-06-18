@@ -258,18 +258,27 @@ For a positive RV $X$, ($\mathbb{P}(X\geq 0) = 1$)$$\mathbb{E}(X^n) = n \int_0^{
 $$\mathbb{P}\left(\frac{|X-\mu|}{\sigma} \geq k\right) \leq \frac{1}{k^2}.$$
 \subsubsection*{Common Series}
 \begin{align*}
+    &\sum_{k=0}^{\infty}\frac{x^k}{k!} &&= e^x &&\mbox{(Taylor Series)} \\
     &\sum_{i=1}^{n} a r^{i-1} &&= \frac{a(1-r^n)}{1-r}, && r \neq 1 \\
     &\sum_{k=0}^{\infty} a r^k &&= \frac{a}{1-r}, && r \in [0,1) \\
-    &\sum_{n=1}^{N} n &&= \frac{N(N+1)}{2}\\
-    &\sum_{n=1}^{N} n^2 &&= \frac{N(N+1)(2N+1)}{6}\\
-    &\sum_{n=1}^{N} n^3 &&= \frac{N^2(N+1)^2}{4}\\
-    &\sum_{n=1}^{\infty} \frac{1}{n^p} && \mbox{diverges for } p \leq 1 \\
+    &\sum_{n=1}^{\infty} \frac{1}{n^p} && \mbox{diverges for } p \leq 1
 \end{align*}
 \subsubsection*{Central Limit Theorem}
 If $X_1, X_2,\dots$ are independent identically distributed random variables with $\mathbb{E}(X_i)=\mu$ and $\mbox{Var}(X_i)=\sigma^2$ and $S_n = X_1 + X_2 + \dots + X_n$ then;
 $$Z_n = \frac{S_n - n\mu}{\sigma \sqrt{n}} \stackrel{d}{\rightarrow} \mbox{N}(0,1) \mbox{ as } n\rightarrow \infty.$$ Put otherwise, as $n \rightarrow \infty$, $S_n \stackrel{d}{\rightarrow} \mbox{N}(n\mu, n\sigma^2)$ or the sample mean $\overline{X} \stackrel{d}{\rightarrow} \mbox{N}(\mu, \frac{\sigma^2}{n})$.
-\subsubsection*{Taylor Expansion of $e^x$}
-$$e^x = \sum_{k=0}^{\infty}\frac{x^k}{k!}.$$
 \subsubsection*{Laplace Transform}
 The Laplace transform of a RV $X$ is defined as $$L_X(t)=M_X(-t)=\mathbb{E}(e^{-tX}).$$ Then the inversion formula $$F_X(x) = \lim_{t\rightarrow \infty} \sum_{k\leq tx} \frac{(-t)^k}{k!}L_X^{(k)}(t)$$ can be used to recover the cumulative distribution of $X$.
+\subsubsection*{Axioms of the Probability Function}
+\begin{enumerate}
+    \item $\mathbb{P}(A) \in [0,1]$
+    \item $\mathbb{P}(\Omega) = 1$
+    \item $\mathbb{P}(\bigcup_{i=1}^{\infty} A_i) = \sum_{i=1}^{\infty} \mathbb{P}(A_i)$
+\end{enumerate}
+\subsubsection*{Solving $min$/$max$ Questions}
+For for independent $U$ and $V$ and $Z = min(U, V)$:
+\begin{align*}
+    &\mathbb{P}(Z \leq z) &&= 1 - \mathbb{P}(Z > z) = 1 - \mathbb{P}(U > z, V > z) \\
+    &   &&= 1 - \mathbb{P}(U > z)\mathbb{P}(V > z)
+\end{align*}
+$Z = max(U, V) \implies \mathbb{P}(Z \leq z) = \mathbb{P}(U \leq z, V \leq z)$
 \end{document}
