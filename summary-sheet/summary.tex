@@ -91,7 +91,7 @@ The exponential distribution has the lack of memory property such that $\mathbb{
 A continuous analogue of the negative binomial distribution, modelling the waiting time until $r$ events occur in continuous time. For an event that has probability of $\alpha$ of occurring over one period of time, the waiting time until the $r^{th}$ event occurs - $T$ - follows $T\stackrel{d}{=} \gamma(r, \alpha)$.
 \begin{align*}
     &f_T(t)=\frac{\alpha^r t^{r-1} e^{-\alpha t}}{\Gamma(r)},\ t > 0\\
-    &F_T(t)=1-\sum_{k=0}^{r+1}\frac{(\alpha t)^k}{k!}e^{-\alpha t}\\
+    &F_T(t)=1-\sum_{k=0}^{r-1}\frac{(\alpha t)^k}{k!}e^{-\alpha t}\\
     &\mathbb{E}(T^k)=\frac{\Gamma(r+k)}{\Gamma(r)\alpha^k}\\
     &\mathbb{E}(T)=\frac{r}{\alpha}\\
     &\mbox{Var}(T)=\frac{r}{\alpha ^2}
@@ -270,9 +270,9 @@ $$Z_n = \frac{S_n - n\mu}{\sigma \sqrt{n}} \stackrel{d}{\rightarrow} \mbox{N}(0,
 The Laplace transform of a RV $X$ is defined as $$L_X(t)=M_X(-t)=\mathbb{E}(e^{-tX}).$$ Then the inversion formula $$F_X(x) = \lim_{t\rightarrow \infty} \sum_{k\leq tx} \frac{(-t)^k}{k!}L_X^{(k)}(t)$$ can be used to recover the cumulative distribution of $X$.
 \subsubsection*{Axioms of the Probability Function}
 \begin{enumerate}
-    \item $\mathbb{P}(A) \in [0,1]$
+    \item $\mathbb{P}(A) \geq 0$
     \item $\mathbb{P}(\Omega) = 1$
-    \item $\mathbb{P}(\bigcup_{i=1}^{\infty} A_i) = \sum_{i=1}^{\infty} \mathbb{P}(A_i)$
+    \item For \textit{disjoint} sets $A_i$, $\mathbb{P}(\bigcup_{i=1}^{\infty} A_i) = \sum_{i=1}^{\infty} \mathbb{P}(A_i)$.
 \end{enumerate}
 \subsubsection*{Solving $min$/$max$ Questions}
 For for independent $U$ and $V$ and $Z = min(U, V)$:
