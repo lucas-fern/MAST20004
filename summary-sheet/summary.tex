@@ -186,8 +186,8 @@ And for $Z_1 = aX+bY$, $Z_2 = cX+dY$:
 where the variance property is a special case; $\mbox{Cov}(Z_1, Z_1) = \mbox{Var}(Z_1)$.
 
 \section*{Conditioning on Random Variables}
-$\mathbb{E}(X|Y) = \mathbb{E}(X|Y=y)$ is the \textit{conditional expectation} of $X$ given $Y$.\\[2mm]
-$\mathbb{E}(X|Y) \coloneqq \int_{-\infty}^{\infty}x f_{X|Y}(x|y)dx$, replacing the integral for a sum over $x \in S_X$ for the discrete case.\\[2mm]
+$\mathbb{E}(X|Y) = \mathbb{E}(X|Y=Y)$ is the \textit{conditional expectation} of $X$ given $Y$.\\[2mm]
+$\mathbb{E}(X|Y = y) \coloneqq \int_{-\infty}^{\infty}x f_{X|Y}(x|y)dx$, replacing the integral for a sum over $x \in S_X$ for the discrete case.\\[2mm]
 The \textbf{Law of Total Expectation} is $\mathbb{E}(\mathbb{E}(X|Y)) = \mathbb{E}(X)$, where we take the outer integral over all values of $y$ and then rearrange from $\int_{-\infty}^{\infty}(\int_{-\infty}^{\infty} x f_{X|Y}(x|y) dx) f_Y(y) dy$ to get $\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} x f_{(X,Y)}(x,y) dy dx = \int_{-\infty}^{\infty} x f_X(x) dx$.\\[2mm]
 Then for variance, $\mbox{Var}(X) = \mbox{Var}(\mathbb{E}(X|Y)) + \mathbb{E}(\mbox{Var}(X|Y))$.
 
